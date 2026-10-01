@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Okuta Joshua</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!--HEADER & NAVIGATION-->
+    <header class="site-header">
+        <div class="container header-inner">
+            <div style="display: flex; align-items: center; gap: 1rem;">
+                <div style="width: 48px; height: 48px; border-radius: 50%; padding: 2px; background: linear-gradient(135deg, var(--accent-gradient-start), var(--accent-gradient-end)); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                    <img src="profile.png" alt="Okuta Joshua Tash" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%; background-color: var(--bg-card);">
+                </div>
+                <div class="brand">
+                    <span class="brand-name">Okuta Joshua</span>
+                    <span class="brand-role">BSC Applied Information Technology <br>Student & Developer</span>
+                </div>
+            </div>
+            
+            <nav class="site-navigation" aria-label="Main Navigation">
+                <ul class="nav-links">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="skills.html">Skills</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+
+            <button class="menu-toggle" aria-label="Toggle Navigation" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+    <!--  HERO SECTION (HOME) -->
+    <main>
+        <section class="hero">
+            <div class="container hero-content">
+                <div class="hero-copy">
+                    <h1><span>IT Professional | Full-Stack Software Developer | Systems & Network Administration</span></h1>
+                    <p class="hero-description">
+                        An Applied Information Technology student based in Uganda, passionate about building robust web and desktop applications, database management, and clean user experiences.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="about.html" class="button button-primary">Read More About Me</a>
+                        <a href="projects.html" class="button button-secondary">View Projects</a>
+                    </div>
+                </div>
+
+                <div class="hero-profile-container">
+                    <div class="profile-photo-wrapper">
+                        <img src="profile.png" alt="Okuta Joshua Tash" class="profile-photo">
+                    </div>
+                    <div class="hero-meta">
+                        <div class="meta-item">
+                            <span class="meta-label">Location</span>
+                            <span class="meta-value">Uganda</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">Focus</span>
+                            <span class="meta-value">Full-Stack & Systems</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">Institution</span>
+                            <span class="meta-value">ISBAT University</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">Status</span>
+                            <span class="meta-value">Available for Work</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--  INTERACTIVE PLAYGROUND SECTION -->
+        <section class="playground-section container" style="padding-bottom: 5rem;">
+            <div class="playground-container">
+                <div class="playground-header">
+                    <span class="eyebrow">Interactive Zone</span>
+                    <h2>Quick Dev Console</h2>
+                    <p>Click below to test live outputs, run code simulations, or trigger dynamic functions!</p>
+                </div>
+                
+                <div class="game-console">
+                    <div id="consoleOutput" class="console-output">
+                        > System ready. Select a command below to run simulation...
+                    </div>
+                    <div class="console-controls">
+                        <button class="console-btn" onclick="runSimulation('status')">Check Status</button>
+                        <button class="console-btn" onclick="runSimulation('skills')">Load Tech Stack</button>
+                        <button class="console-btn" onclick="runSimulation('greet')">Say Hello</button>
+                        <button class="console-btn" onclick="runSimulation('clear')">Clear Console</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <div class="footer-info">
+               <p>Okuta Joshua &bull; BSC Applied Information Technology</p>
+            </div>
+            <div class="footer-copyright">
+                <p>&copy; <span id="current-year">2026</span> All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+    function runSimulation(action) {
+        const output = document.getElementById('consoleOutput');
+        if (action === 'status') {
+            output.innerHTML = '> Status: All systems operational. Ready for deployment 🚀';
+        } else if (action === 'skills') {
+            output.innerHTML = '> Tech Stack Loaded: HTML, CSS, JavaScript, PHP, Node.js, Express, Java & SQLite.';
+        } else if (action === 'greet') {
+            output.innerHTML = '> Hello visitor! Welcome to my interactive portfolio workspace.';
+        } else if (action === 'clear') {
+            output.innerHTML = '> System ready. Select a command below to run simulation...';
+        }
+    }
+    </script>
+</body>
+</html>
