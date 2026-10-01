@@ -8,30 +8,24 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // ==========================================
-    // MOBILE NAVIGATION TOGGLE
+    // MOBILE MENU TOGGLE SCRIPT
     // ==========================================
-    const menuToggle = document.querySelector(".menu-toggle");
-    const siteNavigation = document.querySelector(".site-navigation");
+    const menuToggle = document.querySelector('.menu-toggle');
+    const siteNav = document.querySelector('.site-navigation');
 
-    if (menuToggle && siteNavigation) {
-        menuToggle.addEventListener("click", () => {
-            const isExpanded = menuToggle.getAttribute("aria-expanded") === "true";
-            
-            // Toggle ARIA attributes
-            menuToggle.setAttribute("aria-expanded", !isExpanded);
-            
-            // Toggle visibility / active state
-            siteNavigation.classList.toggle("nav-active");
-            menuToggle.classList.toggle("toggle-active");
+    if (menuToggle && siteNav) {
+        menuToggle.addEventListener('click', () => {
+            const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+            menuToggle.setAttribute('aria-expanded', !isExpanded);
+            siteNav.classList.toggle('nav-active');
         });
 
         // Close mobile menu when clicking any navigation link
-        const navLinks = siteNavigation.querySelectorAll("a");
+        const navLinks = siteNav.querySelectorAll('a');
         navLinks.forEach(link => {
-            link.addEventListener("click", () => {
-                menuToggle.setAttribute("aria-expanded", "false");
-                siteNavigation.classList.remove("nav-active");
-                menuToggle.classList.remove("toggle-active");
+            link.addEventListener('click', () => {
+                siteNav.classList.remove('nav-active');
+                menuToggle.setAttribute('aria-expanded', 'false');
             });
         });
     }

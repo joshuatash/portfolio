@@ -835,3 +835,258 @@ h1, h2, h3 {
     transform: translateY(-2px);
     box-shadow: 0 4px 14px var(--accent-glow);
 }
+/*    RESPONSIVE DESIGN & MOBILE OPTIMIZATIONS */
+
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 1.25rem;
+    }
+
+    .hero-content {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        text-align: center;
+    }
+
+    .hero-description {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-actions {
+        justify-content: center;
+    }
+
+    .about-grid,
+    .education-container-grid,
+    .interests-grid,
+    .contact-content {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    html {
+        font-size: 15px;
+    }
+
+    .site-header {
+        padding: 1rem 0;
+    }
+
+    .site-navigation {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--bg-secondary);
+        border-bottom: 1px solid var(--border-color);
+        padding: 1.5rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .site-navigation.nav-active {
+        display: block;
+    }
+
+    .site-navigation .nav-links {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: stretch;
+    }
+
+    .site-navigation a {
+        text-align: center;
+        display: block;
+        padding: 0.75rem 1rem;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    .hero {
+        padding: 4rem 0 3rem;
+    }
+
+    .hero-copy h1 {
+        font-size: 2.25rem;
+    }
+
+    .hero-meta {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+        padding: 1.5rem;
+    }
+
+    .section {
+        padding: 3.5rem 0;
+    }
+
+    .section-heading h2 {
+        font-size: 1.85rem;
+    }
+
+    .skills-grid,
+    .projects-list,
+    .knowledge-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .playground-container {
+        padding: 1.75rem 1.25rem;
+    }
+
+    .game-console {
+        padding: 1.25rem;
+    }
+
+    .console-controls {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .console-btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    .contact-links {
+        flex-direction: column;
+    }
+
+    .contact-links a {
+        text-align: center;
+    }
+
+    .footer-inner {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    html {
+        font-size: 14px;
+    }
+
+    .brand-name {
+        font-size: 1.2rem;
+    }
+
+    .brand-role {
+        font-size: 0.8rem;
+    }
+
+    .hero-copy h1 {
+        font-size: 2rem;
+    }
+
+    .profile-photo-wrapper {
+        width: 180px;
+        height: 180px;
+    }
+
+    .about-details-card,
+    .education-main,
+    .academic-performance,
+    .development-note,
+    .contact-copy {
+        padding: 1.5rem;
+    }
+}
+
+/* FLYING / SLIDING CURVED ANIMATION (MOBILE MENU) */
+
+/* ==========================================
+   FIXED HORIZONTAL C-SHAPE CURVED MENU
+   ========================================== */
+@media (max-width: 768px) {
+    .site-navigation {
+        display: block;
+        position: absolute;
+        top: 85px; /* Positions right below your header */
+        right: 1.5rem;
+        left: auto;
+        width: auto;
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+        padding: 0;
+        pointer-events: none;
+    }
+
+    .site-navigation.nav-active {
+        pointer-events: auto;
+    }
+
+    /* Change flex-direction to row so they spread horizontally */
+    .site-navigation .nav-links {
+        display: flex;
+        flex-direction: row-reverse; /* Spreads them horizontally from right to left */
+        gap: 0.5rem;
+        align-items: center;
+    }
+
+    /* Independent C-Shaped Buttons */
+    .site-navigation a {
+        display: inline-block;
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--text-main);
+        background-color: var(--bg-card);
+        border: 1px solid var(--border-color);
+        padding: 0.6rem 1rem;
+        border-radius: 20px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+        white-space: nowrap;
+        
+        /* Initial hidden state bunched near the toggle button */
+        opacity: 0;
+        transform: translate(30px, -20px) scale(0.8);
+        transition: transform 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+                    opacity 0.3s ease, 
+                    background-color 0.3s ease;
+    }
+
+    /* True C-Shape Arc Trajectory: 
+       The outer items stay close, while the middle items push downward and outward 
+       to form a sweeping crescent/C-shape curve facing right. */
+       
+    .site-navigation.nav-active a:nth-child(1) { /* Home */
+        opacity: 1;
+        transform: translate(0px, 0px) scale(1);
+        transition-delay: 0.04s;
+    }
+    .site-navigation.nav-active a:nth-child(2) { /* About */
+        opacity: 1;
+        transform: translate(-10px, 15px) scale(1);
+        transition-delay: 0.08s;
+    }
+    .site-navigation.nav-active a:nth-child(3) { /* Projects - Apex of the curve */
+        opacity: 1;
+        transform: translate(-20px, 28px) scale(1);
+        transition-delay: 0.12s;
+    }
+    .site-navigation.nav-active a:nth-child(4) { /* Skills */
+        opacity: 1;
+        transform: translate(-10px, 15px) scale(1);
+        transition-delay: 0.16s;
+    }
+    .site-navigation.nav-active a:nth-child(5) { /* Contact */
+        opacity: 1;
+        transform: translate(0px, 0px) scale(1);
+        transition-delay: 0.2s;
+    }
+
+    /* Hover effect */
+    .site-navigation a:hover {
+        background: linear-gradient(135deg, var(--accent-gradient-start), var(--accent-gradient-end));
+        border-color: transparent;
+        color: #ffffff;
+        box-shadow: 0 4px 14px var(--accent-glow);
+    }
+}
